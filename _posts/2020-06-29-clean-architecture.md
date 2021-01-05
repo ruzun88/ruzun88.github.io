@@ -1,3 +1,10 @@
+---
+layout: post
+title: "클린 아키텍쳐"
+author: "Yongjun Cho"
+tags: Clean Code
+---
+
 ## 1장. 설계와 아키텍처란?
 - 소프트 웨어 아키텍처의 목표 :   
 필요한 시스템을 만들고 유지보수하는데 투입되는 인력을 최소화 하는 것
