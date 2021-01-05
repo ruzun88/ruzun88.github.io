@@ -2,7 +2,7 @@
 layout: post
 title: "클린 아키텍쳐"
 author: "Yongjun Cho"
-tags: Clean Code
+tags: CleanCode
 ---
 
 ## 1장. 설계와 아키텍처란?
