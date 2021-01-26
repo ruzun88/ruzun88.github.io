@@ -57,14 +57,16 @@ new Vue({
 
 ### props 전달
 - 하위 컴포넌트에 props 생성 필요
-```js
+``` js
 Vue.component('child-component', {
     props:['propsdata']
 });
 ```
+
 - 상위 컴포넌트에 v-bind로 연결 필요
-```html
-<child-component v-bind:propsdata="전달할 상위 컴포넌트의 data 속성">
+
+``` html
+<child-component v-bind:propsdata="전달할 상위 컴포넌트의 data 속성"></child-component>
 ```
 
 ### 이벤트 발생
@@ -73,6 +75,7 @@ Vue.component('child-component', {
 // 이벤트 발생
 this.$emit('이벤트이름')
 ```
+
 ``` html
 // 이벤트 수신
 <child-component v-on:이벤트이름="상위 컴포넌트 메서드이름"></child-component>
@@ -82,3 +85,50 @@ this.$emit('이벤트이름')
 - 관계 없는 2개의 컴포넌트간 데이터를 주고 받을 수 있는 방법
 - 별도의 Vue instance를 생성하여 .$emit()으로 보내고 .$on()으로 받음
 - 많아지면 관리가 되지 않아, vuex가 필요함
+
+
+## 뷰 라우터
+### 라우팅
+- 웹 페이지 간의 이동 방법
+- 싱글 페이지 어플리케이션에서 주로 활용함
+
+### 뷰 라우터
+- 뷰에서 라우팅 구현을 도와주는 라이브러리
+- router-link to에서 지정한 url을 routes list의 객체로 매핑한다.
+- 뷰 라우터 사용 시, el 지정 대신, $mount를 사용한다.<br>$mount는 강제로 인스턴스를 화면에 붙이는 방법이다.
+- router-view는 URL값에 따라 갱신되는 화면 영역이다.
+
+```js
+var routes = [
+    { path: '/main', component: { template: '<div>main</div>' } },
+    { path: '/login', component: { template: '<div>login</div>' } }
+]
+var router = new VueRouter({
+    mode: 'history', // URL에 '#'이 붙는 것을 방지함
+    routes
+});
+var app = new Vue({
+    router
+}).$mount('#app')
+```
+
+### Nested Router
+- router-view는 중첩되서 사용될 수 있다.
+- nested router는 vuepress 문서를 사용할때는 기억하면 된다.
+
+```js
+var routes = [
+    {
+        path: '/user',
+        component: User,
+        childredn: [
+            {
+                path: 'posts',
+                component: UserPost
+            }
+        ]
+    }
+]
+```
+
+### Named View
