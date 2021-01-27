@@ -147,3 +147,74 @@ var routes = [
 #### Promise 기반 API ?
 - 비동기 로직 처리에 유용한 자바스크립트 객체
 - 데이터 요청 후 받아올때까지 기다렸다 화면에 나타낼 때 주로 사용함
+
+## 뷰 템플릿
+### 정의
+마크업 속성(HTML / CSS 등)과 뷰 인스턴스의 데이터/로직을 연결하여 브라우저에서 볼 수 있게 변환해주는 속성
+
+### 사용법
+1. ES5의 template 속성 활용 : 내부적으로 render() 함수 사용
+1. ES6의 \<template> 코드 활용
+
+### 데이터 바인딩
+#### {{}}
+- 해당 변수 안의 값을 그대로 보여줌
+- js 표현식도 사용 가능, 단, 복잡한건 사용하지 말자.
+```html
+{{ message }}
+{{ message + "!!!" }}
+{{ message.split('').reverse().join('') }} // 쓸 수 있지만 안좋은 예
+```
+이렇게 two step으로 바꾸자
+```html
+{{ reversedMessage }}
+```
+```js
+computed: {
+    reversedMessage(): function() {
+        return this.message.split('').reverse().join('');
+    }
+}
+```
+
+#### v-bind
+HTML 속성에 데이터 값을 연결할 때 사용함
+```html
+<p v-bind:id="idA">아이디 바인딩</p>
+<p v-bind:class="classA">class 바인딩</p>
+<p v-bind:style="styleA">style 바인딩</p>
+```
+
+### Directive (디렉티브)
+- v-접두사를 가진 모든 속성
+- v-if / v-show / v-on / v-bind / v-for / v-model
+
+
+### 이벤트 처리
+- v-on 디렉티브와 methods 속성을 활용
+- v-on으로 받을 이벤트를 정의하고, method를 호출함
+
+### computed 속성
+- data가 변하면 자동으로 다시 연산을 수행
+- 캐싱을 통해 결과값을 미리 저장하고 있다가 필요시 불러옴
+
+#### vs methods
+- method는 호출할때만 수동적으로 수행됨
+
+### watch 속성
+- computed처럼 data변화를 감지하면 자동으로 로직 수행함
+- computed는 간단한거 하고, watch는 시간 걸리는 비동기 처리에 적합
+
+## Vue 프로젝트 구성
+### single file component
+.vue 파일은 template / script / style 모두 포함 가능함
+
+### VUE CLI
+- vue init webpack: 기본
+- vue init webpack-simple: 프로토타입시 빠르고 가볍게 사용
+
+### vue loader
+- vue 파일을 브라우저 실행 가능한 웹페이지 형태로 변환함
+- 변환 기능은 웹팩에서 담당함. 그 중에 웹팩에서 설정된 뷰로더가 변환함
+- 필요시 css/html을 별도로 추출가능함
+- webpack.config.js파일의 loader 항목에서 확인 가능
