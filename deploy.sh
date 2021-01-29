@@ -18,6 +18,6 @@ git commit -m 'deploy'
 
 
 # if you are deploying to https://<USERNAME>.github.io
-git push -f ruzun88@gmail.com:ruzun88/ruzun88.github.io.git master
+git push -f https://github.com/ruzun88/ruzun88.github.io.git master
 
 cd -

@@ -3,7 +3,7 @@ home: true
 heroImage: https://v1.vuepress.vuejs.org/hero.png
 tagline: my documents for all
 actionText: Quick Start →
-actionLink: /guide/
+actionLink: /book/
 features:
 - title: Feature 1 Title
   details: Feature 1 Description
