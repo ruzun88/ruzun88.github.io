@@ -36,6 +36,10 @@ module.exports = {
       {
         text: 'Book',
         link: '/book/',
+      },
+      {
+        text: 'Study',
+        link: '/study/',
       }
     ],
     sidebar: {
@@ -47,6 +51,16 @@ module.exports = {
             '',
             'clean-architecture',
             'do-it-vuejs'
+          ]
+        }
+      ],
+      '/study/': [
+        {
+          title: '기초부터 탄탄히',
+          collapsable: false,
+          children: [
+            '',
+            'exceptions',
           ]
         }
       ],
