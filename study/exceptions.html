@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Checked Exception과 Unchecked Exception | ruzun88 dev note</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="my documents for all">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/assets/css/0.styles.7fad836b.css" as="style"><link rel="preload" href="/assets/js/app.67bda940.js" as="script"><link rel="preload" href="/assets/js/2.a3d93d00.js" as="script"><link rel="preload" href="/assets/js/6.7710ca59.js" as="script"><link rel="prefetch" href="/assets/js/10.f49a4ed7.js"><link rel="prefetch" href="/assets/js/11.dd6dad8b.js"><link rel="prefetch" href="/assets/js/12.de12e11d.js"><link rel="prefetch" href="/assets/js/13.cddf521d.js"><link rel="prefetch" href="/assets/js/14.28b55fb8.js"><link rel="prefetch" href="/assets/js/15.376b1444.js"><link rel="prefetch" href="/assets/js/16.8e0b4815.js"><link rel="prefetch" href="/assets/js/17.aff50d1b.js"><link rel="prefetch" href="/assets/js/18.5311678f.js"><link rel="prefetch" href="/assets/js/3.4c7ae838.js"><link rel="prefetch" href="/assets/js/4.fbfb9e52.js"><link rel="prefetch" href="/assets/js/5.0c35aff5.js"><link rel="prefetch" href="/assets/js/7.44258a9d.js"><link rel="prefetch" href="/assets/js/8.3e6d159a.js"><link rel="prefetch" href="/assets/js/9.09b999b6.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.7fad836b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">ruzun88 dev note</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/book/" class="nav-link">
+  Book
+</a></div><div class="nav-item"><a href="/study/" class="nav-link router-link-active">
+  Study
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/book/" class="nav-link">
+  Book
+</a></div><div class="nav-item"><a href="/study/" class="nav-link router-link-active">
+  Study
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>기초부터 탄탄히</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/study/" aria-current="page" class="sidebar-link">기초부터 탄탄히</a></li><li><a href="/study/exceptions.html" aria-current="page" class="active sidebar-link">Checked Exception과 Unchecked Exception</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/study/exceptions.html#분류" class="sidebar-link">분류</a></li><li class="sidebar-sub-header"><a href="/study/exceptions.html#차이" class="sidebar-link">차이</a></li><li class="sidebar-sub-header"><a href="/study/exceptions.html#처리-방법" class="sidebar-link">처리 방법</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="checked-exception과-unchecked-exception"><a href="#checked-exception과-unchecked-exception" class="header-anchor">#</a> Checked Exception과 Unchecked Exception</h1> <h2 id="분류"><a href="#분류" class="header-anchor">#</a> 분류</h2> <p>Exception의 종류는 크게 Runtime Exception과 그 외로 나뉜다.<br>
+runtime Exception은 unchecked exception이며, 나머지는 checked exception이다.</p> <p><img src="/assets/img/exceptions-hierarchy.cb730336.png" alt="exception category"><br>
+(출처: beingjavaguys.com)</p> <h2 id="차이"><a href="#차이" class="header-anchor">#</a> 차이</h2> <table><thead><tr><th style="text-align:center;"></th> <th>Checked</th> <th>Unchecked</th></tr></thead> <tbody><tr><td style="text-align:center;">처리방법</td> <td>명시적으로 처리(try/catch 등)</td> <td>처리 안해도 됨</td></tr> <tr><td style="text-align:center;">트랜잭션</td> <td>예외 발생시 rollback 안함</td> <td>rollback 함</td></tr></tbody></table> <h2 id="처리-방법"><a href="#처리-방법" class="header-anchor">#</a> 처리 방법</h2> <ul><li>Checked Exception을 만나면, 구체적인 Unchecked exception을 발생시켜 정확한 정보전달을 하라고 권장함. (난 checked exception이 좋은데...)</li> <li>단, 예외 복구 전략이 명확하고 가능하다면, Checked exception을 써도 된다.</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/study/" class="prev router-link-active">
+        기초부터 탄탄히
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.67bda940.js" defer></script><script src="/assets/js/2.a3d93d00.js" defer></script><script src="/assets/js/6.7710ca59.js" defer></script>
+  </body>
+</html>
