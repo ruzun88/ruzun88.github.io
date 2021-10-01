@@ -1,77 +1,62 @@
-const { description } = require('../../package')
-
 module.exports = {
-  /**
-   * Ref：https://v1.vuepress.vuejs.org/config/#title
-   */
-  title: 'ruzun88 dev note',
-  /**
-   * Ref：https://v1.vuepress.vuejs.org/config/#description
-   */
-  description: description,
-
-  /**
-   * Extra tags to be injected to the page HTML `<head>`
-   *
-   * ref：https://v1.vuepress.vuejs.org/config/#head
-   */
-  head: [
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
-    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
-  ],
-
-  /**
-   * Theme configuration, here is the default theme configuration for VuePress.
-   *
-   * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
-   */
-  themeConfig: {
-    repo: '',
-    editLinks: false,
-    docsDir: '',
-    editLinkText: '',
-    lastUpdated: false,
-    nav: [
-      {
-        text: 'Book',
-        link: '/book/',
-      },
-      {
-        text: 'Study',
-        link: '/study/',
-      }
-    ],
-    sidebar: {
-      '/book/': [
-        {
-          title: '책으로 한 공부',
-          collapsable: false,
-          children: [
-            '',
-            'clean-architecture',
-            'do-it-vuejs'
-          ]
-        }
-      ],
-      '/study/': [
-        {
-          title: '기초부터 탄탄히',
-          collapsable: false,
-          children: [
-            '',
-            'exceptions',
-          ]
-        }
-      ],
-    }
+  locales: {
+    // The key is the path for the locale to be nested under.
+    // As a special case, the default locale can use '/' as its path.
+    '/': {
+      lang: 'ko-KR',
+      title: 'ruzun devlog',
+      description: 'Vue 문서',
+    },
+    '/en/': {
+      lang: 'en-US',
+      title: 'ruzun devlog',
+      description: 'Vue-powered Static Site Generator',
+    },
   },
-
-  /**
-   * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
-   */
   plugins: [
-    '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
-  ]
+    [
+      // '@vuepress/google-analytics',
+      {
+        'ga': 'G-WLKRXL08F6' // UA-00000000-0
+      }
+    ]
+  ],
+  head: [
+    [
+        'script',
+        {
+            async: true,
+            src: 'https://www.googletagmanager.com/gtag/js?id=G-WLKRXL08F6',
+        },
+    ],
+    [
+        'script',
+        {},
+        [
+            "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-WLKRXL08F6');",
+        ],
+    ],
+],
+
+  themeConfig: {
+    logo: 'https://vuejs.org/images/logo.png',
+    locales: {
+      '/': {
+        selectLanguageName: '한국어',
+        navbar: [
+          { text: 'Home', link: '/' },
+          { text: 'Guide', link: '/guide/' },
+          { text: 'Github', link: 'https://www.github.com/ruzun88' }
+        ]
+      },
+      '/en/': {
+        selectLanguageName: 'English',
+        navbar: [
+          { text: 'Home', link: '/en/' },
+          { text: 'Guide', link: '/guide/' },
+          { text: 'Github', link: 'https://www.github.com/ruzun88' }
+        ]
+      },
+    },
+  },
 }

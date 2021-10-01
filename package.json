@@ -1,19 +1,16 @@
 {
-  "name": "ruzun88.github.io",
-  "version": "0.0.1",
-  "description": "my documents for all",
+  "name": "ruzun-docs",
+  "version": "1.0.0",
+  "description": "Documentations for dev",
   "main": "index.js",
-  "authors": {
-    "name": "yongjun",
-    "email": "ruzun88@gmail.com"
-  },
-  "repository": "/ruzun88.github.io",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "vuepress": "^1.5.3"
+    "vuepress": "^2.0.0-beta.26"
   }
 }
