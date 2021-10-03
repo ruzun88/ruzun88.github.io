@@ -75,7 +75,7 @@ module.exports = {
 ## 삽질로그
 원리는 간단합니다. 코드 리팩토링과 동일하게 config를 리팩토링 하는 것입니다.   
 이때, 주의해야 할 것은 두가지입니다.
-1. 각 설정은 module.exports로 리턴해야 합니.   
+1. 각 설정은 module.exports로 리턴해야 합니다.   
    저는 분리한 설정을 function으로 만들어, export default로 노출시키려고 했습니다.   
    아래와 같은 오류로 실패...
    ```

@@ -6,10 +6,10 @@ tags: ['vuepress', 'vuepress config']
 ---
 # How to refactor complex configs?
 ::: tip
-When you use Vuepress long time, Configs are getting more dirty.   
+When you use Vuepress for a long time, Configs get more dirty.   
 Hundreds of lines will make you confused...   
-It's really hard to read, recognize, also change configs.
-This page tells how to manage your configuration with multi files.
+It's really hard to read, to recognize, and also hard to change configs.
+This page tells you how to manage your configuration with multi files.
 :::
 **After** refactor your `Config`, your `config.js` may similar to this.
 ``` js
