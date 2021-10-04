@@ -14,6 +14,12 @@ module.exports = {
     '@assets': path.resolve(__dirname, '/docs/assets'),
   },
   plugins: [
-    ['sitemap', { hostname: 'https://ruzun88.github.io/' }]
+    ['sitemap', { hostname: 'https://ruzun88.github.io' }],
+    ['@vuepress/pwa', { skipWaiting: true }],
   ],
+  // plugins: {
+  //   'sitemap': {
+  //     hostname: 'https://ruzun88.github.io'
+  //   },
+  // },
 }
