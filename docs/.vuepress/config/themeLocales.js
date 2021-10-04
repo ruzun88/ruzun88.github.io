@@ -1,50 +1,64 @@
+const { keys } = require("./inHeadTag")
+
 module.exports = {
   '/': {
     selectLanguageName: '한국어',
-    navbar: [
-      { text: 'Home', link: '/' },
-      {
-        text: 'Backend',
-        children: [
-          { text: 'Spring',
-            children:[
-              { text: 'Spring Security', link: '/spring/security' },
-              { text: 'Spring Boot', link: '/spring/boot' }
-            ]
-          },
-        ]
-      },
-      {
-        text: 'Frontend',
-        children: [
-          { text: 'Vue',
-            children:[
-              { text: 'Vue', link: '/vue/itself' },
-              { text: 'Vuepress', link: '/vue/vuepress' }
-            ]
-          },
-        ]
-      },
-      { text: 'Github', link: 'https://www.github.com/ruzun88' }
-    ],
-    sidebar: {
-      '/vue/vuepress' : [
-        {
-          text: 'Vuepress Tips',
-          collapsable: true,
-          children: [
-            'beautify-config.md'
-          ]
-        }
-      ]
-    }
+    navbar: getNavBar(),
+    sidebar: getSideBar(),
   },
   '/en/': {
     selectLanguageName: 'English',
-    navbar: [
-      { text: 'Home', link: '/en/' },
-      // { text: 'Guide', link: '/guide/' },
-      { text: 'Github', link: 'https://www.github.com/ruzun88' }
+    navbar: getNavBar('/en'),
+    sidebar: getSideBar('/en'),
+  }
+}
+
+function getNavBar (prefix = '') {
+  return [
+    { text: 'Home', link: prefix + '/' },
+    {
+      text: 'Backend',
+      children: [
+        { text: 'Spring',
+          children:[
+            { text: 'Spring Security', link: prefix + '/spring/security/' },
+            { text: 'Spring Boot', link: prefix + '/spring/boot/' }
+          ]
+        },
+      ]
+    },
+    {
+      text: 'Frontend',
+      children: [
+        { text: 'Vue',
+          children:[
+            { text: 'Vue', link: prefix + '/vue/itself/' },
+            { text: 'Vuepress', link: prefix + '/vue/vuepress/' }
+          ]
+        },
+      ]
+    },
+    { text: 'Github', link: 'https://www.github.com/ruzun88' }
+  ]
+}
+
+function getSideBar (prefix = '') {
+  let sidebar = {
+    '/vue/vuepress' : [
+      {
+        text: 'Vuepress Tips (v2.x)',
+        collapsable: true,
+        children: [
+          'beautify-config.md',
+          'apply-i18n.md',
+        ]
+      }
     ]
   }
+  let ret = {}
+  for (var key in sidebar) {
+    let val = sidebar[key]
+    ret[prefix + key] = val
+  }
+  return ret
 }

@@ -13,4 +13,7 @@ module.exports = {
   alias: {
     '@assets': path.resolve(__dirname, '/docs/assets'),
   },
+  plugins: [
+    ['sitemap', { hostname: 'https://ruzun88.github.io/' }]
+  ],
 }
