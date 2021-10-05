@@ -38,7 +38,8 @@ function getNavBar (prefix = '') {
         },
       ]
     },
-    { text: 'Github', link: 'https://www.github.com/ruzun88' }
+    { text: 'Github', link: 'https://www.github.com/ruzun88' },
+    { text: 'Contact', link: '/contact/slack.md'}
   ]
 }
 
