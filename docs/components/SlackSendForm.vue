@@ -2,27 +2,39 @@
   <div class="contents">
     <div class="form-wrapper form-wrapper-sm">
       <form @submit.prevent="submitForm" class="form">
-        <div>
-          <label for="email">Email:</label>
-          <input id="email" type="text" v-model="email" />
-          <p class="validation-text">
-            <span class="warning" v-if="!isEmailValid && email">
-              Please enter an email address
-            </span>
-          </p>
-        </div>
-        <div>
-          <label for="msg">문의내용:</label>
-          <textarea id="msg" type="text" rows="10" v-model="msg" />
-        </div>
-        <button
-          :disabled="!isEmailValid || !msg"
-          type="submit"
-          class="btn"
-          :class="!isEmailValid || !msg ? 'disabled' : null"
-        >
-          전송
-        </button>
+        <table>
+            <tr>
+              <td>
+                <label for="email">Email:</label>
+              </td>
+              <td>
+                <input id="email" type="text" v-model="email" />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="msg">문의내용:</label></td>
+              <td><textarea id="msg" type="text" rows="10" v-model="msg" /></td>
+            </tr>
+              <div>
+              <p class="validation-text">
+                <span class="warning" v-if="!isEmailValid && email">
+                  Please enter an email address
+                </span>
+              </p>
+            </div>
+            <div>
+              
+              
+            </div>
+            <button
+              :disabled="!isEmailValid || !msg"
+              type="submit"
+              class="btn"
+              :class="!isEmailValid || !msg ? 'disabled' : null"
+            >
+              전송
+            </button>
+        </table>
       </form>
       <p class="log">{{ logMessage }}</p>
     </div>

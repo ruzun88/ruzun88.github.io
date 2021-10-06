@@ -18,7 +18,10 @@
   },
   "dependencies": {
     "axios": "^0.22.0",
+    "crypto-js": "^4.1.1",
     "esm": "^3.2.25",
+    "install": "^0.13.0",
+    "npm": "^7.24.2",
     "vuepress-plugin-sitemap": "^2.3.1"
   }
 }
