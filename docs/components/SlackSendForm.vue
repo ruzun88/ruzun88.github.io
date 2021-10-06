@@ -30,7 +30,8 @@
 </template>
 
 <script>
-import { sendMessage } from '@api/slack';
+import { sendMessage, sendMessageOauth } from '@api/slack';
+// import { WebClient } from '@slack/web-api'
 
 export default {
   name: 'SlackSendForm',
@@ -59,15 +60,12 @@ export default {
       try {
         // biz logic
         let slackMsg = {
-          text: this.email + ' || ' + this.msg
+          email: this.email,
+          msg: this.msg
         };
+        console.log(slackMsg)
         await sendMessage(slackMsg)
-        // await를 넣지 않으면 발생하는 문제점
-        // login 인증 처리가 모두 되지 않은 상태에서 main으로 넘어가면, auth 에러 발생
-
-        // this.$router.push('/main');
-        // this.logMessage = `${data.user.username}님, 환영합니다!`;
-        // this.initForm();
+        // await sendMessageOauth(slackMsg)
       } catch (error) {
         // 에러 핸들링 코드
         // console.log(error);
