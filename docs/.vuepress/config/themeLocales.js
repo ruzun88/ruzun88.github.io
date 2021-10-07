@@ -54,6 +54,15 @@ function getSideBar (prefix = '') {
           'apply-i18n.md',
         ]
       }
+    ],
+    '/spring/security' : [
+      {
+        text: 'Spring Security',
+        collapsable: true,
+        children: [
+          '403-forbidden',
+        ]
+      }
     ]
   }
   let ret = {}
