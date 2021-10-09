@@ -16,7 +16,7 @@ module.exports = {
     '@api': path.resolve(__dirname, '/docs/components/apis')
   },
   plugins: [
-    ['sitemap', { hostname: 'https://ruzun88.github.io' }],
+    // ['sitemap', { hostname: 'https://ruzun88.github.io' }],
     ['@vuepress/pwa', { skipWaiting: true }],
     [
       '@vuepress/register-components',
