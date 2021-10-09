@@ -17,15 +17,15 @@ module.exports = {
   },
   plugins: [
     // ['sitemap', { hostname: 'https://ruzun88.github.io' }],
-    ['@vuepress/pwa', { skipWaiting: true }],
-    [
-      '@vuepress/register-components',
-      {
-        components: {
-          SlackSendForm: path.resolve(__dirname, '/docs/components/SlackSendForm'),
-        },
-      },
-    ],
+    // ['@vuepress/pwa', { skipWaiting: true }],
+    // [
+    //   '@vuepress/register-components',
+    //   {
+    //     components: {
+    //       SlackSendForm: path.resolve(__dirname, '/docs/components/SlackSendForm'),
+    //     },
+    //   },
+    // ],
   ],
   // plugins: {
   //   'sitemap': {
