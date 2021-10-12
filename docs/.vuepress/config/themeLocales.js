@@ -32,7 +32,7 @@ function getNavBar (prefix = '') {
       children: [
         { text: 'Vue',
           children:[
-            { text: 'Vue', link: prefix + '/vue/itself/' },
+            { text: 'Vue', link: prefix + '/vue/vue/' },
             { text: 'Vuepress', link: prefix + '/vue/vuepress/' }
           ]
         },
