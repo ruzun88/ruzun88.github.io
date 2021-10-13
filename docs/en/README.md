@@ -1,6 +1,6 @@
 ---
 lang: en-US
-title: Hello VuePress
+title: Ruzun's lesson learned
 description: Description of this page
 ---
-# Hello VuePress
+# Welcome to ruzun's lesson learnd pages!
